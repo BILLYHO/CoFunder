@@ -7,12 +7,35 @@
 //
 
 #import "CFAppDelegate.h"
+#import "CFDiscoverViewController.h"
+#import "CFActivityViewController.h"
+#import "CFProfileViewController.h"
+
 
 @implementation CFAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+	
+	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	[self.window makeKeyAndVisible];
+	
+	
+	CFDiscoverViewController *discoverView = [[CFDiscoverViewController alloc]initWithNibName:@"CFDiscoverViewController" bundle:nil];
+	CFActivityViewController *activityView = [[CFActivityViewController alloc]initWithNibName:@"CFActivityViewController" bundle:nil];
+	CFProfileViewController *profileView = [[CFProfileViewController alloc]initWithNibName:@"CFProfileViewController" bundle:nil];
+	
+	UINavigationController *nav1 = [[UINavigationController alloc]  initWithRootViewController:discoverView];
+    UINavigationController *nav2 = [[UINavigationController alloc]  initWithRootViewController:activityView];
+    UINavigationController *nav3 = [[UINavigationController alloc]  initWithRootViewController:profileView];
+    
+	UITabBarController *tabBarController = [[UITabBarController alloc]init];
+    NSArray *arrayNavigationControllers = @[nav1, nav2, nav3];
+    [tabBarController setViewControllers:arrayNavigationControllers];
+    
+	
+	[self.window setRootViewController:tabBarController];
     return YES;
 }
 							

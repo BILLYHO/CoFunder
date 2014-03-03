@@ -13,14 +13,24 @@
 		28ADF30B18C324680012A7DB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28ADF30918C324680012A7DB /* InfoPlist.strings */; };
 		28ADF30D18C324680012A7DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 28ADF30C18C324680012A7DB /* main.m */; };
 		28ADF31118C324680012A7DB /* CFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28ADF31018C324680012A7DB /* CFAppDelegate.m */; };
-		28ADF31418C324680012A7DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28ADF31218C324680012A7DB /* Main.storyboard */; };
-		28ADF31718C324680012A7DB /* CFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28ADF31618C324680012A7DB /* CFViewController.m */; };
 		28ADF31918C324680012A7DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28ADF31818C324680012A7DB /* Images.xcassets */; };
 		28ADF32018C324680012A7DB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28ADF31F18C324680012A7DB /* XCTest.framework */; };
 		28ADF32118C324680012A7DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28ADF30018C324680012A7DB /* Foundation.framework */; };
 		28ADF32218C324680012A7DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28ADF30418C324680012A7DB /* UIKit.framework */; };
 		28ADF32A18C324680012A7DB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28ADF32818C324680012A7DB /* InfoPlist.strings */; };
 		28ADF32C18C324680012A7DB /* CoFounderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 28ADF32B18C324680012A7DB /* CoFounderTests.m */; };
+		28ADF33D18C32C520012A7DB /* CFDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28ADF33B18C32C520012A7DB /* CFDiscoverViewController.m */; };
+		28ADF33E18C32C520012A7DB /* CFDiscoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28ADF33C18C32C520012A7DB /* CFDiscoverViewController.xib */; };
+		28ADF34718C32CA00012A7DB /* CFActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28ADF34518C32CA00012A7DB /* CFActivityViewController.m */; };
+		28ADF34818C32CA00012A7DB /* CFActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28ADF34618C32CA00012A7DB /* CFActivityViewController.xib */; };
+		28ADF34C18C32CB60012A7DB /* CFProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28ADF34A18C32CB60012A7DB /* CFProfileViewController.m */; };
+		28ADF34D18C32CB60012A7DB /* CFProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28ADF34B18C32CB60012A7DB /* CFProfileViewController.xib */; };
+		28ADF35818C377300012A7DB /* CFDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28ADF35618C377300012A7DB /* CFDetailViewController.m */; };
+		28ADF35918C377300012A7DB /* CFDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28ADF35718C377300012A7DB /* CFDetailViewController.xib */; };
+		28ADF3A718C42CA40012A7DB /* CFDiscoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28ADF3A618C42CA40012A7DB /* CFDiscoverCell.m */; };
+		28ADF3A918C42CB70012A7DB /* CFDiscoverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28ADF3A818C42CB70012A7DB /* CFDiscoverCell.xib */; };
+		28ADF3AC18C4785B0012A7DB /* CFDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28ADF3AB18C4785B0012A7DB /* CFDetailCell.m */; };
+		28ADF3B018C478BC0012A7DB /* CFDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28ADF3AF18C478BC0012A7DB /* CFDetailCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,15 +54,30 @@
 		28ADF30E18C324680012A7DB /* CoFounder-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoFounder-Prefix.pch"; sourceTree = "<group>"; };
 		28ADF30F18C324680012A7DB /* CFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CFAppDelegate.h; sourceTree = "<group>"; };
 		28ADF31018C324680012A7DB /* CFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CFAppDelegate.m; sourceTree = "<group>"; };
-		28ADF31318C324680012A7DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		28ADF31518C324680012A7DB /* CFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CFViewController.h; sourceTree = "<group>"; };
-		28ADF31618C324680012A7DB /* CFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CFViewController.m; sourceTree = "<group>"; };
 		28ADF31818C324680012A7DB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		28ADF31E18C324680012A7DB /* CoFounderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoFounderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28ADF31F18C324680012A7DB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		28ADF32718C324680012A7DB /* CoFounderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CoFounderTests-Info.plist"; sourceTree = "<group>"; };
 		28ADF32918C324680012A7DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		28ADF32B18C324680012A7DB /* CoFounderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoFounderTests.m; sourceTree = "<group>"; };
+		28ADF33A18C32C520012A7DB /* CFDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFDiscoverViewController.h; sourceTree = "<group>"; };
+		28ADF33B18C32C520012A7DB /* CFDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFDiscoverViewController.m; sourceTree = "<group>"; };
+		28ADF33C18C32C520012A7DB /* CFDiscoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CFDiscoverViewController.xib; sourceTree = "<group>"; };
+		28ADF34418C32CA00012A7DB /* CFActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFActivityViewController.h; sourceTree = "<group>"; };
+		28ADF34518C32CA00012A7DB /* CFActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFActivityViewController.m; sourceTree = "<group>"; };
+		28ADF34618C32CA00012A7DB /* CFActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CFActivityViewController.xib; sourceTree = "<group>"; };
+		28ADF34918C32CB60012A7DB /* CFProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFProfileViewController.h; sourceTree = "<group>"; };
+		28ADF34A18C32CB60012A7DB /* CFProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFProfileViewController.m; sourceTree = "<group>"; };
+		28ADF34B18C32CB60012A7DB /* CFProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CFProfileViewController.xib; sourceTree = "<group>"; };
+		28ADF35518C377300012A7DB /* CFDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFDetailViewController.h; sourceTree = "<group>"; };
+		28ADF35618C377300012A7DB /* CFDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFDetailViewController.m; sourceTree = "<group>"; };
+		28ADF35718C377300012A7DB /* CFDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CFDetailViewController.xib; sourceTree = "<group>"; };
+		28ADF3A518C42CA40012A7DB /* CFDiscoverCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFDiscoverCell.h; path = Cell/CFDiscoverCell.h; sourceTree = "<group>"; };
+		28ADF3A618C42CA40012A7DB /* CFDiscoverCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFDiscoverCell.m; path = Cell/CFDiscoverCell.m; sourceTree = "<group>"; };
+		28ADF3A818C42CB70012A7DB /* CFDiscoverCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CFDiscoverCell.xib; sourceTree = "<group>"; };
+		28ADF3AA18C4785B0012A7DB /* CFDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFDetailCell.h; path = Cell/CFDetailCell.h; sourceTree = "<group>"; };
+		28ADF3AB18C4785B0012A7DB /* CFDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFDetailCell.m; path = Cell/CFDetailCell.m; sourceTree = "<group>"; };
+		28ADF3AF18C478BC0012A7DB /* CFDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CFDetailCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,9 +139,17 @@
 			children = (
 				28ADF30F18C324680012A7DB /* CFAppDelegate.h */,
 				28ADF31018C324680012A7DB /* CFAppDelegate.m */,
-				28ADF31218C324680012A7DB /* Main.storyboard */,
-				28ADF31518C324680012A7DB /* CFViewController.h */,
-				28ADF31618C324680012A7DB /* CFViewController.m */,
+				28ADF33A18C32C520012A7DB /* CFDiscoverViewController.h */,
+				28ADF33B18C32C520012A7DB /* CFDiscoverViewController.m */,
+				28ADF33C18C32C520012A7DB /* CFDiscoverViewController.xib */,
+				28ADF34418C32CA00012A7DB /* CFActivityViewController.h */,
+				28ADF34518C32CA00012A7DB /* CFActivityViewController.m */,
+				28ADF34618C32CA00012A7DB /* CFActivityViewController.xib */,
+				28ADF34918C32CB60012A7DB /* CFProfileViewController.h */,
+				28ADF34A18C32CB60012A7DB /* CFProfileViewController.m */,
+				28ADF34B18C32CB60012A7DB /* CFProfileViewController.xib */,
+				28ADF35318C365A80012A7DB /* Cell */,
+				28ADF35418C3770C0012A7DB /* Detail */,
 				28ADF31818C324680012A7DB /* Images.xcassets */,
 				28ADF30718C324680012A7DB /* Supporting Files */,
 			);
@@ -150,6 +183,29 @@
 				28ADF32818C324680012A7DB /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		28ADF35318C365A80012A7DB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				28ADF3A518C42CA40012A7DB /* CFDiscoverCell.h */,
+				28ADF3A618C42CA40012A7DB /* CFDiscoverCell.m */,
+				28ADF3A818C42CB70012A7DB /* CFDiscoverCell.xib */,
+				28ADF3AA18C4785B0012A7DB /* CFDetailCell.h */,
+				28ADF3AB18C4785B0012A7DB /* CFDetailCell.m */,
+				28ADF3AF18C478BC0012A7DB /* CFDetailCell.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		28ADF35418C3770C0012A7DB /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				28ADF35518C377300012A7DB /* CFDetailViewController.h */,
+				28ADF35618C377300012A7DB /* CFDetailViewController.m */,
+				28ADF35718C377300012A7DB /* CFDetailViewController.xib */,
+			);
+			name = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,9 +285,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28ADF3A918C42CB70012A7DB /* CFDiscoverCell.xib in Resources */,
+				28ADF33E18C32C520012A7DB /* CFDiscoverViewController.xib in Resources */,
 				28ADF31918C324680012A7DB /* Images.xcassets in Resources */,
+				28ADF34818C32CA00012A7DB /* CFActivityViewController.xib in Resources */,
+				28ADF34D18C32CB60012A7DB /* CFProfileViewController.xib in Resources */,
+				28ADF3B018C478BC0012A7DB /* CFDetailCell.xib in Resources */,
+				28ADF35918C377300012A7DB /* CFDetailViewController.xib in Resources */,
 				28ADF30B18C324680012A7DB /* InfoPlist.strings in Resources */,
-				28ADF31418C324680012A7DB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,9 +311,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28ADF33D18C32C520012A7DB /* CFDiscoverViewController.m in Sources */,
 				28ADF30D18C324680012A7DB /* main.m in Sources */,
+				28ADF3A718C42CA40012A7DB /* CFDiscoverCell.m in Sources */,
+				28ADF34718C32CA00012A7DB /* CFActivityViewController.m in Sources */,
+				28ADF35818C377300012A7DB /* CFDetailViewController.m in Sources */,
+				28ADF3AC18C4785B0012A7DB /* CFDetailCell.m in Sources */,
 				28ADF31118C324680012A7DB /* CFAppDelegate.m in Sources */,
-				28ADF31718C324680012A7DB /* CFViewController.m in Sources */,
+				28ADF34C18C32CB60012A7DB /* CFProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,14 +347,6 @@
 				28ADF30A18C324680012A7DB /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		28ADF31218C324680012A7DB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				28ADF31318C324680012A7DB /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		28ADF32818C324680012A7DB /* InfoPlist.strings */ = {
@@ -461,6 +519,7 @@
 				28ADF33118C324680012A7DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		28ADF33218C324680012A7DB /* Build configuration list for PBXNativeTarget "CoFounderTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +528,7 @@
 				28ADF33418C324680012A7DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,5 +1,5 @@
 //
-//  CFViewController.h
+//  CFProfileViewController.h
 //  CoFounder
 //
 //  Created by BILLY HO on 3/2/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CFViewController : UIViewController
+@interface CFProfileViewController : UIViewController
 
 @end
