@@ -31,6 +31,8 @@
 		28ADF3A918C42CB70012A7DB /* CFDiscoverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28ADF3A818C42CB70012A7DB /* CFDiscoverCell.xib */; };
 		28ADF3AC18C4785B0012A7DB /* CFDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28ADF3AB18C4785B0012A7DB /* CFDetailCell.m */; };
 		28ADF3B018C478BC0012A7DB /* CFDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28ADF3AF18C478BC0012A7DB /* CFDetailCell.xib */; };
+		28ADF3B318C74F230012A7DB /* CFFavouriteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28ADF3B218C74F230012A7DB /* CFFavouriteCell.m */; };
+		28ADF3B518C74F350012A7DB /* CFFavouriteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28ADF3B418C74F350012A7DB /* CFFavouriteCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,9 @@
 		28ADF3AA18C4785B0012A7DB /* CFDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFDetailCell.h; path = Cell/CFDetailCell.h; sourceTree = "<group>"; };
 		28ADF3AB18C4785B0012A7DB /* CFDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFDetailCell.m; path = Cell/CFDetailCell.m; sourceTree = "<group>"; };
 		28ADF3AF18C478BC0012A7DB /* CFDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CFDetailCell.xib; sourceTree = "<group>"; };
+		28ADF3B118C74F230012A7DB /* CFFavouriteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFFavouriteCell.h; sourceTree = "<group>"; };
+		28ADF3B218C74F230012A7DB /* CFFavouriteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFFavouriteCell.m; sourceTree = "<group>"; };
+		28ADF3B418C74F350012A7DB /* CFFavouriteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CFFavouriteCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +147,7 @@
 				28ADF33A18C32C520012A7DB /* CFDiscoverViewController.h */,
 				28ADF33B18C32C520012A7DB /* CFDiscoverViewController.m */,
 				28ADF33C18C32C520012A7DB /* CFDiscoverViewController.xib */,
+				28ADF35418C3770C0012A7DB /* Detail */,
 				28ADF34418C32CA00012A7DB /* CFActivityViewController.h */,
 				28ADF34518C32CA00012A7DB /* CFActivityViewController.m */,
 				28ADF34618C32CA00012A7DB /* CFActivityViewController.xib */,
@@ -149,7 +155,6 @@
 				28ADF34A18C32CB60012A7DB /* CFProfileViewController.m */,
 				28ADF34B18C32CB60012A7DB /* CFProfileViewController.xib */,
 				28ADF35318C365A80012A7DB /* Cell */,
-				28ADF35418C3770C0012A7DB /* Detail */,
 				28ADF31818C324680012A7DB /* Images.xcassets */,
 				28ADF30718C324680012A7DB /* Supporting Files */,
 			);
@@ -194,6 +199,9 @@
 				28ADF3AA18C4785B0012A7DB /* CFDetailCell.h */,
 				28ADF3AB18C4785B0012A7DB /* CFDetailCell.m */,
 				28ADF3AF18C478BC0012A7DB /* CFDetailCell.xib */,
+				28ADF3B118C74F230012A7DB /* CFFavouriteCell.h */,
+				28ADF3B218C74F230012A7DB /* CFFavouriteCell.m */,
+				28ADF3B418C74F350012A7DB /* CFFavouriteCell.xib */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -289,6 +297,7 @@
 				28ADF33E18C32C520012A7DB /* CFDiscoverViewController.xib in Resources */,
 				28ADF31918C324680012A7DB /* Images.xcassets in Resources */,
 				28ADF34818C32CA00012A7DB /* CFActivityViewController.xib in Resources */,
+				28ADF3B518C74F350012A7DB /* CFFavouriteCell.xib in Resources */,
 				28ADF34D18C32CB60012A7DB /* CFProfileViewController.xib in Resources */,
 				28ADF3B018C478BC0012A7DB /* CFDetailCell.xib in Resources */,
 				28ADF35918C377300012A7DB /* CFDetailViewController.xib in Resources */,
@@ -315,6 +324,7 @@
 				28ADF30D18C324680012A7DB /* main.m in Sources */,
 				28ADF3A718C42CA40012A7DB /* CFDiscoverCell.m in Sources */,
 				28ADF34718C32CA00012A7DB /* CFActivityViewController.m in Sources */,
+				28ADF3B318C74F230012A7DB /* CFFavouriteCell.m in Sources */,
 				28ADF35818C377300012A7DB /* CFDetailViewController.m in Sources */,
 				28ADF3AC18C4785B0012A7DB /* CFDetailCell.m in Sources */,
 				28ADF31118C324680012A7DB /* CFAppDelegate.m in Sources */,

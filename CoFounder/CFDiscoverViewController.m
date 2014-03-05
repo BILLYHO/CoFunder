@@ -16,7 +16,7 @@
 
 @implementation CFDiscoverViewController
 
-static NSString *eventCellIndentifier = @"EventCell";
+static NSString *discoverCell = @"discoverCell";
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,8 +34,7 @@ static NSString *eventCellIndentifier = @"EventCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 	
-	UINib *eventNib = [UINib nibWithNibName:@"CFEventCell" bundle:nil];
-	[self.tableView registerNib:eventNib forCellReuseIdentifier:eventCellIndentifier];
+	[self.tableView registerNib:[UINib nibWithNibName:@"CFDiscoverCell" bundle:nil] forCellReuseIdentifier:discoverCell];
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,14 +58,7 @@ static NSString *eventCellIndentifier = @"EventCell";
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *discoverCell = @"discoverCell";
-    static BOOL isRegNib = NO;
-    if (!isRegNib)
-	{
-        [tableView registerNib:[UINib nibWithNibName:@"CFDiscoverCell" bundle:nil] forCellReuseIdentifier:discoverCell];
-        isRegNib = YES;
-    }
-    
+ 
     CFDiscoverCell *cell = [tableView dequeueReusableCellWithIdentifier:discoverCell];
     
     

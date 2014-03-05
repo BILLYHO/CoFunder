@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CFActivityViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UIProgressView *progess;
-@property (strong, nonatomic) IBOutlet UILabel *testLabel;
+@property (strong, nonatomic) IBOutlet UITableView *favTableView;
+
 
 @end

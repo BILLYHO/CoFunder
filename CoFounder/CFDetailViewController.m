@@ -10,10 +10,12 @@
 #import "CFDetailCell.h"
 
 @interface CFDetailViewController ()
-@property (strong, nonatomic) NSString *detailCell;
+
 @end
 
 @implementation CFDetailViewController
+
+static NSString *detailCell = @"detailCell";
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,8 +35,7 @@
 	self.navigationController.navigationBarHidden = YES;
 	self.tabBarController.tabBar.hidden = YES;
 	
-	    _detailCell = @"detailCell";
-	[_tableView registerNib:[UINib nibWithNibName:@"CFDetailCell" bundle:nil] forCellReuseIdentifier:_detailCell];
+	[_tableView registerNib:[UINib nibWithNibName:@"CFDetailCell" bundle:nil] forCellReuseIdentifier:detailCell];
 	
 	_topImageView.image = [UIImage imageNamed:@"project"];
 	_titleLabel.text = [NSString stringWithFormat:@"乐心智能儿童身高测量仪--熊孩子家必备神器！"];
@@ -80,14 +81,8 @@
 
 
     
-    CFDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:_detailCell];
+    CFDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:detailCell];
 
-	
-	if (cell == nil)
-	{
-		cell = [[CFDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:_detailCell];
-		NSLog(@"new cell");
-	}
 	
 	
     
