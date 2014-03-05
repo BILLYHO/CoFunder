@@ -93,6 +93,7 @@ static NSString *eventCellIndentifier = @"EventCell";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
 	CFDetailViewController *detailView = [[CFDetailViewController alloc]initWithNibName:@"CFDetailViewController" bundle:nil];
+	detailView.tabBarController.hidesBottomBarWhenPushed = YES;
 	[self.navigationController pushViewController:detailView animated:YES];
 }
 

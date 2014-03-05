@@ -42,6 +42,9 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="contentLabel" destination="CbO-sb-JYI" id="Fms-AY-tTE"/>
+                <outlet property="moneyLabel" destination="NH9-D9-bmQ" id="7FH-s2-gTR"/>
+                <outlet property="peopleLabel" destination="ImJ-1u-Ueg" id="H58-Y2-hUF"/>
+                <outlet property="remainLabel" destination="ZbH-Dj-yaF" id="sNW-zF-Tua"/>
             </connections>
         </tableViewCell>
     </objects>

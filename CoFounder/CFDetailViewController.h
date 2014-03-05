@@ -19,5 +19,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
 
 @property (strong, nonatomic) NSArray *content;
+@property (strong, nonatomic) NSArray *money;
 
 @end
