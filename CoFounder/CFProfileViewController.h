@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CFProfileViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UILabel *profileLabel;
+- (IBAction)logout:(id)sender;
 
 @end

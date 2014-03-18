@@ -8,6 +8,10 @@
 
 #import "CFDetailViewController.h"
 #import "CFDetailCell.h"
+#import "AppMarco.h"
+#import "UIImageView+WebCache.h"
+#import "CFConfirmViewController.h"
+#import "AppMarco.h"
 
 @interface CFDetailViewController ()
 
@@ -37,18 +41,33 @@ static NSString *detailCell = @"detailCell";
 	
 	[_tableView registerNib:[UINib nibWithNibName:@"CFDetailCell" bundle:nil] forCellReuseIdentifier:detailCell];
 	
-	_topImageView.image = [UIImage imageNamed:@"project"];
-	_titleLabel.text = [NSString stringWithFormat:@"乐心智能儿童身高测量仪--熊孩子家必备神器！"];
-	_descriptionLabel.text = [NSString stringWithFormat:@"市面上很多的智能产品都是为自己设计的，从来没有一款可以陪伴小孩成长的智能产品，乐心智能身高测量仪是全球第一款真正智能记录身高的测量仪，它能够精确的记录宝宝每次的身高数据并且分析，建议；配合光学测量技术，为孩子带来简单轻松的测量体验。它是伴随你宝宝成长最好的礼物。"];
+	[_topImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",serverUrl,[_contentDic objectForKey:@"proj_pic"]]]];
+	_titleLabel.text = [_contentDic objectForKey:@"proj_name"];
+	_descriptionLabel.text = [_contentDic objectForKey:@"proj_intro"];
 	
+	_itemContent = [[NSMutableArray alloc] init];
+	for (int i=0; i<[[NSString stringWithFormat:@"%@",[_contentDic objectForKey:@"item_number"]]intValue]; i++)
+	{
+		NSString *key = [NSString stringWithFormat:@"%d",i];
+		[_itemContent addObject:[_contentDic objectForKey:key]];
+	}
 	
-	_content = @[
-	@"【智能身高测量仪1台】感谢您对乐心智能身高测量仪的大力支持！作为点名时间支持者，您能够以极其优惠的价格得到智能身高测量仪一台，比预计市场价399便宜200元！限量50台。",
-	@"【智能身高测量仪1台】感谢您对乐心智能身高测量仪的大力支持！虽然您没有拿到最优惠的前50台，但支持这一项您仍然可以以269元的价格得到399智能身高测量仪一台，并优先发货。",
-	@"【智能身高测量仪2台】感谢您对乐心智能身高测量仪的大力支持！您一定是特有爱的支持者，我们为您准备了两台装，一台您宝宝用，一台给您关心的人。",
-	@"【智能身高测量仪50台】感谢您对乐心智能身高测量仪的大力支持！ 大小经销商们的支持者看过来，我们为您准备了50台装，您可以用来在自己的渠道中试销智能身高测量仪，或作为馈赠礼品使用。同时，我们也欢迎全球各地经销商与我们联系、洽谈后续的商业合作事宜。",];
+	NSUserDefaults *dataBase = [NSUserDefaults standardUserDefaults];
+	_username = [dataBase objectForKey:@"currentUser"];
+	_proj = [_contentDic objectForKey:@"proj_id"];
 	
-	_money = @[@"199", @"299", @"499", @"9999"];
+	NSError *error;
+	NSString *urlString = [NSString stringWithFormat:@"%@/index.php/Index/isFollowing/username/%@/proj_id/%@",serverUrl, _username, _proj];
+	NSURL *url = [NSURL URLWithString:urlString];
+	NSURLRequest *request = [NSURLRequest requestWithURL:url];
+	NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+	NSDictionary *favDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+	
+	if ([[favDic objectForKey:@"response"] isEqualToString:@"true"])
+	{
+		_favButton.tintColor = [UIColor colorWithRed:255 green:200 blue:0 alpha:1];
+	}
+	
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,7 +92,7 @@ static NSString *detailCell = @"detailCell";
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return [_content count];
+	return [_itemContent count];
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -86,32 +105,24 @@ static NSString *detailCell = @"detailCell";
 	
 	
     
-    cell.contentLabel.text = @"";
+    //cell.contentLabel.text = @"";
 
-	NSString *text = [_content objectAtIndex:[indexPath row]];
+	NSDictionary *cellDic = [_itemContent objectAtIndex:indexPath.row];
     
-    CGSize constraint = CGSizeMake(320 - (20 * 2), 20000.0f);
-    
-    NSAttributedString *attributedText = [[NSAttributedString alloc]initWithString:text attributes:@{
-																									 NSFontAttributeName:[UIFont systemFontOfSize:16.0f]
-																									 }];
-    CGRect rect = [attributedText boundingRectWithSize:constraint
-                                               options:NSStringDrawingUsesLineFragmentOrigin
-                                               context:nil];
-    CGSize size = rect.size;
-	
-    
-    UILabel *con = [[UILabel alloc]initWithFrame:CGRectMake(20, 78, 320 - (20 * 2), size.height+30)];
-	con.text = [_content objectAtIndex:indexPath.row];
-	con.numberOfLines = 99;
-    [cell addSubview:con];
-	
-	cell.moneyLabel.text = [NSString stringWithFormat:@"支持 ¥ %@",  [_money objectAtIndex:[indexPath row]]];
+	NSString *text = [cellDic objectForKey:@"item_return"];
 
-	unsigned people = arc4random()%10000;
-	cell.peopleLabel.text = [NSString stringWithFormat:@"%d位支持者",people];
-	cell.remainLabel.text = [NSString stringWithFormat:@"限%d位, 剩余%d位", 10000, 10000-people];
+	cell.contentLabel.text = text;
+	for(int i=0; i<99; i++)
+		cell.contentLabel.text = [cell.contentLabel.text stringByAppendingString:@"\n "];
+    
 	
+	cell.moneyLabel.text = [NSString stringWithFormat:@"支持 ¥ %@",[cellDic objectForKey:@"item_money" ]];
+
+	unsigned now = [[NSString stringWithFormat:@"%@",[cellDic objectForKey:@"item_people_now"]]intValue];
+	unsigned reqire = [[NSString stringWithFormat:@"%@",[cellDic objectForKey:@"item_people_request"]]intValue];
+	cell.peopleLabel.text = [NSString stringWithFormat:@"%d位支持者",now];
+	cell.remainLabel.text = [NSString stringWithFormat:@"限%d位, 剩余%d位", reqire, reqire - now];
+	[cell.remainLabel sizeToFit];
     return cell;
 }
 
@@ -119,7 +130,10 @@ static NSString *detailCell = @"detailCell";
 #pragma mark - Table view delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	NSString *text = [_content objectAtIndex:[indexPath row]];
+	NSDictionary *cellDic = [_itemContent objectAtIndex:[indexPath row]];
+    
+	NSString *text = [cellDic objectForKey:@"item_return"];
+
     
     CGSize constraint = CGSizeMake(320 - (20 * 2), 20000.0f);
     
@@ -138,13 +152,54 @@ static NSString *detailCell = @"detailCell";
     CGFloat height = size.height;
     //NSLog([NSString stringWithFormat:@"height: %f", height]);
 	
-    return height + 120;
+    return height + 150;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+	
+		
+	CFConfirmViewController *confirmView = [[CFConfirmViewController alloc]initWithNibName:@"CFConfirmViewController" bundle:nil];
+	confirmView.tabBarController.hidesBottomBarWhenPushed = YES;
+	
+	confirmView.contentDic = [_itemContent objectAtIndex:indexPath.row];
+	
+	[self.navigationController pushViewController:confirmView animated:YES];
 
 }
+
+- (IBAction)didClickedFavButton:(id)sender
+{
+	if ([_favButton.tintColor isEqual:[UIColor colorWithRed:255 green:200 blue:0 alpha:1]])
+	{
+		NSError *error;
+		NSString *urlString = [NSString stringWithFormat:@"%@/index.php/Index/removeFollowing/username/%@/proj_id/%@",serverUrl, _username, _proj];
+		NSURL *url = [NSURL URLWithString:urlString];
+		NSURLRequest *request = [NSURLRequest requestWithURL:url];
+		NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+		NSDictionary *favDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+		
+		if ([[favDic objectForKey:@"response"] isEqualToString:@"OK"])
+		{
+			_favButton.tintColor = [UIColor colorWithRed:0 green:0.48 blue:255 alpha:1];
+		}
+	}
+	else
+	{
+		NSError *error;
+		NSString *urlString = [NSString stringWithFormat:@"%@/index.php/Index/addFollowing/username/%@/proj_id/%@",serverUrl, _username, _proj];
+		NSURL *url = [NSURL URLWithString:urlString];
+		NSURLRequest *request = [NSURLRequest requestWithURL:url];
+		NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+		NSDictionary *favDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+		
+		if ([[favDic objectForKey:@"response"] isEqualToString:@"ok"])
+		{
+			_favButton.tintColor = [UIColor colorWithRed:255 green:200 blue:0 alpha:1];
+		}
+	}
+}
+
 
 @end

@@ -17,8 +17,14 @@
 @property (strong, nonatomic) IBOutlet UILabel *progressLabel;
 @property (strong, nonatomic) IBOutlet UIButton *descriptionButton;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *favButton;
 
-@property (strong, nonatomic) NSArray *content;
+@property (strong, nonatomic) NSMutableArray *itemContent;
 @property (strong, nonatomic) NSArray *money;
+
+@property (strong, nonatomic) NSDictionary *contentDic;
+
+@property (strong, nonatomic) NSString *username;
+@property (strong, nonatomic) NSString *proj;
 
 @end

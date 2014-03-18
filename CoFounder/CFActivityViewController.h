@@ -10,6 +10,12 @@
 
 @interface CFActivityViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UITableView *favTableView;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *segment;
+
+
+@property (strong, nonatomic) NSArray *investArr;
+@property (strong, nonatomic) NSArray *favArr;
+@property (strong, nonatomic) NSArray *record;
 
 
 @end

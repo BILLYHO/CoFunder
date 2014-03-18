@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "REMenu.h"
+#import "AppMarco.h"
 
 @interface CFDiscoverViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) REMenu *menu;
+
+@property (strong, nonatomic) NSMutableArray *projectArr;
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "CFProfileViewController.h"
+#import "CFLoginViewController.h"
+#import "CFInsertViewController.h"
 
 @interface CFProfileViewController ()
 
@@ -20,7 +22,8 @@
     if (self) {
         // Custom initialization
 		self.title = @"Profile";
-		self.tabBarItem.image = [UIImage imageNamed:@"profile"];
+		self.navigationController.navigationItem.leftBarButtonItem = nil;
+		self.navigationItem.hidesBackButton = YES;
     }
     return self;
 }
@@ -29,6 +32,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+	
+	NSUserDefaults *dataBase = [NSUserDefaults standardUserDefaults];
+	_profileLabel.text = [NSString stringWithFormat:@"Hello! %@!", [dataBase objectForKey:@"currentUser"]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -37,4 +43,20 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)logout:(id)sender
+{
+	NSUserDefaults *dataBase = [NSUserDefaults standardUserDefaults];
+	[dataBase setObject:@"" forKey:@"currentUser"];
+	[dataBase synchronize];
+	
+	CFLoginViewController *loginView = [[CFLoginViewController alloc]initWithNibName:@"CFLoginViewController" bundle:nil];
+	[self.navigationController pushViewController:loginView animated:YES];
+
+}
+- (IBAction)didInsertButtonClicked:(id)sender
+{
+	NSLog(@"click");
+	CFInsertViewController *insertView = [[CFInsertViewController alloc]initWithNibName:@"CFInsertViewController" bundle:nil];
+	[self.navigationController pushViewController:insertView animated:YES];
+}
 @end

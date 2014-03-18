@@ -9,7 +9,7 @@
 #import "CFAppDelegate.h"
 #import "CFDiscoverViewController.h"
 #import "CFActivityViewController.h"
-#import "CFProfileViewController.h"
+#import "CFLoginViewController.h"
 
 
 @implementation CFAppDelegate
@@ -24,7 +24,7 @@
 	
 	CFDiscoverViewController *discoverView = [[CFDiscoverViewController alloc]initWithNibName:@"CFDiscoverViewController" bundle:nil];
 	CFActivityViewController *activityView = [[CFActivityViewController alloc]initWithNibName:@"CFActivityViewController" bundle:nil];
-	CFProfileViewController *profileView = [[CFProfileViewController alloc]initWithNibName:@"CFProfileViewController" bundle:nil];
+	CFLoginViewController *profileView = [[CFLoginViewController alloc]initWithNibName:@"CFLoginViewController" bundle:nil];
 	
 	UINavigationController *nav1 = [[UINavigationController alloc]  initWithRootViewController:discoverView];
     UINavigationController *nav2 = [[UINavigationController alloc]  initWithRootViewController:activityView];
