@@ -7,6 +7,7 @@
 //
 
 #import "CFConfirmViewController.h"
+#import "AppMarco.h"
 
 
 @interface CFConfirmViewController ()
@@ -28,6 +29,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+	NSUserDefaults *dataBase = [NSUserDefaults standardUserDefaults];
+	_username = [dataBase objectForKey:@"currentUser"];
+	
 	_moneyLabel.text = [NSString stringWithFormat:@"¥ %@", [_contentDic objectForKey:@"item_money"]];
 	_contentLabel.text = [_contentDic objectForKey:@"item_return"];
 	for(int i=0; i<9; i++)
@@ -61,14 +65,30 @@
 	// Indeterminate mode
 	sleep(2);
 	
-
-	_HUD.mode = MBProgressHUDModeCustomView;
-	_HUD.labelText = @"支付成功!";
-	sleep(1);
+	NSError *error;
+	NSString *urlString = [NSString stringWithFormat:@"%@/index.php/Index/addInvestment/username/%@/proj_id/%@/money/%@",serverUrl, _username, _identifier, [_contentDic objectForKey:@"item_money"]];
+	NSURL *url = [NSURL URLWithString:urlString];
+	NSURLRequest *request = [NSURLRequest requestWithURL:url];
+	NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+	NSDictionary *resDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
 	
-	[self.navigationController popToRootViewControllerAnimated:YES];
-	self.navigationController.navigationBarHidden = NO;
-	self.tabBarController.tabBar.hidden = NO;
+	NSLog(urlString);
+	
+	if ([[NSString stringWithFormat:@"%@",[resDic objectForKey:@"status"]] isEqualToString:@"0"])
+	{
+		_HUD.mode = MBProgressHUDModeCustomView;
+		_HUD.labelText = [resDic objectForKey:@"response"];
+		sleep(1);
+	}
+	else
+	{
+		_HUD.mode = MBProgressHUDModeCustomView;
+		_HUD.labelText = @"支付成功!";
+		sleep(1);
+		[self.navigationController popToRootViewControllerAnimated:YES];
+		self.navigationController.navigationBarHidden = NO;
+		self.tabBarController.tabBar.hidden = NO;
+	}
 }
 
 #pragma mark MBProgressHUDDelegate methods

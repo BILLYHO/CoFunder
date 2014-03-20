@@ -15,5 +15,7 @@
 @property (strong, nonatomic) NSDictionary *contentDic;
 @property (strong, nonatomic) IBOutlet UILabel *moneyLabel;
 @property (strong, nonatomic) IBOutlet UILabel *contentLabel;
+@property (strong, nonatomic) NSString *username;
+@property (strong, nonatomic) NSString *identifier;
 
 @end

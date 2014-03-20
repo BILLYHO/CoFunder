@@ -163,6 +163,7 @@ static NSString *detailCell = @"detailCell";
 	CFConfirmViewController *confirmView = [[CFConfirmViewController alloc]initWithNibName:@"CFConfirmViewController" bundle:nil];
 	confirmView.tabBarController.hidesBottomBarWhenPushed = YES;
 	
+	confirmView.identifier = _proj;
 	confirmView.contentDic = [_itemContent objectAtIndex:indexPath.row];
 	
 	[self.navigationController pushViewController:confirmView animated:YES];

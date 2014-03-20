@@ -35,6 +35,7 @@
 	
 	NSUserDefaults *dataBase = [NSUserDefaults standardUserDefaults];
 	_profileLabel.text = [NSString stringWithFormat:@"Hello! %@!", [dataBase objectForKey:@"currentUser"]];
+	_nameLabel.text = [dataBase objectForKey:@"currentUser"];
 }
 
 - (void)didReceiveMemoryWarning

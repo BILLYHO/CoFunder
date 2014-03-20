@@ -36,11 +36,12 @@ static NSString *discoverCell = @"discoverCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 	
-	_projectArr = [NSMutableArray arrayWithArray:[self loadDataAfterId:0]];
+	_projectArr = [NSMutableArray arrayWithArray:[self loadDataAfterId:@"0"]];
 	
 	[self.tableView registerNib:[UINib nibWithNibName:@"CFDiscoverCell" bundle:nil] forCellReuseIdentifier:discoverCell];
 	
 	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self action:@selector(showMenu)];
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,10 +52,10 @@ static NSString *discoverCell = @"discoverCell";
 
 
 #pragma mark - Load Data
-- (NSArray *)loadDataAfterId:(int)id
+- (NSArray *)loadDataAfterId:(NSString *) identifier
 {
 	NSError *error;
-	NSString *urlString = [NSString stringWithFormat:@"%@/index.php/Index/getNumOfProjects/id/%d",serverUrl, id];
+	NSString *urlString = [NSString stringWithFormat:@"%@/index.php/Index/getNumOfProjects/id/%@",serverUrl, identifier];
 	NSURL *url = [NSURL URLWithString:urlString];
 	NSURLRequest *request = [NSURLRequest requestWithURL:url];
 	NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
@@ -126,6 +127,20 @@ static NSString *discoverCell = @"discoverCell";
 	[self.navigationController pushViewController:detailView animated:YES];
 }
 
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//	if (indexPath.row + 1 == [_projectArr count])
+//	{
+//		NSArray *newArr = [[NSArray alloc]init];
+//		newArr = [self loadDataAfterId:[[_projectArr objectAtIndex:indexPath.row] objectForKey:@"proj_id" ]];
+//		if (newArr != nil)
+//		{
+//			[_projectArr addObjectsFromArray:newArr];
+//			[tableView reloadData];
+//		}
+//	}
+//}
+
 #pragma navigationbar menu
 - (void)showMenu
 {
@@ -182,5 +197,11 @@ static NSString *discoverCell = @"discoverCell";
     _menu.imageOffset = CGSizeMake(5, -1);
     
     [_menu showFromNavigationController:self.navigationController];
+}
+
+- (void) refresh
+{
+	[self loadDataAfterId:@"0"];
+	[self.tableView reloadData];
 }
 @end

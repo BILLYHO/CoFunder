@@ -10,6 +10,7 @@
 
 @interface CFProfileViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UILabel *profileLabel;
+@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 - (IBAction)logout:(id)sender;
 
 @end
